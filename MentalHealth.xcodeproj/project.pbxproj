@@ -31,6 +31,7 @@
 		09B0212E28D5DBC20010C4B7 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B0212D28D5DBC20010C4B7 /* Font+Extension.swift */; };
 		D91FF16028D5F30E00D1F920 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FF15F28D5F30E00D1F920 /* SearchView.swift */; };
 		09B0213028D5E83F0010C4B7 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B0212F28D5E83F0010C4B7 /* Color+Extension.swift */; };
+		09B0213228D5EF730010C4B7 /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B0213128D5EF730010C4B7 /* DefaultViewController.swift */; };
 		D9AD694028D5CA4400610D64 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AD693F28D5CA4400610D64 /* UIView+Extension.swift */; };
 		D9AD694328D5CA7000610D64 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D9AD694228D5CA7000610D64 /* CombineCocoa */; };
 		D9AD694728D5CC4300610D64 /* BlogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AD694628D5CC4300610D64 /* BlogCollectionViewCell.swift */; };
@@ -64,6 +65,7 @@
 		09B0212D28D5DBC20010C4B7 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		D91FF15F28D5F30E00D1F920 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		09B0212F28D5E83F0010C4B7 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		09B0213128D5EF730010C4B7 /* DefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
 		D9AD693F28D5CA4400610D64 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D9AD694628D5CC4300610D64 /* BlogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCollectionViewCell.swift; sourceTree = "<group>"; };
 		D9AD694928D5CCB100610D64 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				09ADDC5928D5C1F6007B6623 /* AppDelegate.swift */,
 				09ADDC5B28D5C1F6007B6623 /* SceneDelegate.swift */,
 				09ADDC7028D5C323007B6623 /* TabBarVC.swift */,
+				09B0213128D5EF730010C4B7 /* DefaultViewController.swift */,
 				09B0211D28D5D3600010C4B7 /* Models */,
 				09ADDC7428D5C368007B6623 /* Home */,
 				09ADDC7728D5C383007B6623 /* Progress */,
@@ -311,6 +314,7 @@
 				09B0211C28D5D35D0010C4B7 /* Mood.swift in Sources */,
 				09ADDC7F28D5C40A007B6623 /* ProfileVC.swift in Sources */,
 				09B0213028D5E83F0010C4B7 /* Color+Extension.swift in Sources */,
+				09B0213228D5EF730010C4B7 /* DefaultViewController.swift in Sources */,
 				09B0211F28D5D8430010C4B7 /* MoodProgress.swift in Sources */,
 				09ADDC5A28D5C1F6007B6623 /* AppDelegate.swift in Sources */,
 				D91FF16028D5F30E00D1F920 /* SearchView.swift in Sources */,
