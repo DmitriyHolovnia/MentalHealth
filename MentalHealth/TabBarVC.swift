@@ -40,14 +40,14 @@ class TabBarVC: UITabBarController {
                                              selectedImage: UIImage(named: "progress")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
         
         let opportunitiesVC = OpportunitiesVC()
-        opportunitiesVC.tabBarItem = UITabBarItem(title: "Спільноти",
-                                                  image: UIImage(named: "community"),
-                                                  selectedImage: UIImage(named: "community")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
+        opportunitiesVC.tabBarItem = UITabBarItem(title: "Можливості",
+                                                  image: UIImage(named: "opportunities"),
+                                                  selectedImage: UIImage(named: "opportunities")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
         
         let blogVC = BlogVC()
-        blogVC.tabBarItem = UITabBarItem(title: "Можливості",
-                                         image: UIImage(named: "opportunities"),
-                                         selectedImage: UIImage(named: "opportunities")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
+        blogVC.tabBarItem = UITabBarItem(title: "Спільноти",
+                                         image: UIImage(named: "community"),
+                                         selectedImage: UIImage(named: "community")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
         
         let profileVC = ProfileVC()
         profileVC.tabBarItem = UITabBarItem(title: "Профіль",

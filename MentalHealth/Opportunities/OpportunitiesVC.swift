@@ -7,11 +7,13 @@
 
 import UIKit
 
-class OpportunitiesVC: UIViewController {
+class OpportunitiesVC: DefaultViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .purple
+        view.backgroundColor = .white
+        title = "Можливості"
+        titleLabel.text = title
     }
     
 
