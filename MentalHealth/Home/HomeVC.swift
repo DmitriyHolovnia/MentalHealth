@@ -9,6 +9,11 @@ import UIKit
 
 class HomeVC: DefaultViewController {
 
+    private let scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.isUserInteractionEnabled = true
+        return scroll
+    }()
     private let firstCard = CardView(
         height: 134,
         title: "Як почуваєшся?",
@@ -53,6 +58,21 @@ class HomeVC: DefaultViewController {
         label.text = "Інструкції"
         return label
     }()
+    private lazy var instructionStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 16
+        stack.distribution = .fillEqually
+        instructionViews.forEach( { stack.addArrangedSubview($0) } )
+        return stack
+    }()
+    private var instructionViews: [InstructionView] {
+        return [
+            .init(title: "Проблеми з близькими", image: "hands"),
+            .init(title: "Проблеми зі сном", image: "pillow"),
+            .init(title: "Тривога та стрес", image: "bubble")
+        ]
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,29 +84,43 @@ class HomeVC: DefaultViewController {
     }
 
     private func setup() {
-        view.addSubview(firstCard, constraints: [
-            firstCard.topAnchor.constraint(equalTo: headerView.bottomAnchor),
-            firstCard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            firstCard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+        view.addSubview(scrollView, constraints: [
+            scrollView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
-        view.addSubview(sectionLabel, constraints: [
+        scrollView.addSubview(firstCard, constraints: [
+            firstCard.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            firstCard.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 24),
+            firstCard.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -24)
+        ])
+        scrollView.addSubview(sectionLabel, constraints: [
             sectionLabel.topAnchor.constraint(equalTo: firstCard.bottomAnchor, constant: 32),
             sectionLabel.leadingAnchor.constraint(equalTo: firstCard.leadingAnchor)
         ])
-        view.addSubview(secondCard, constraints: [
+        scrollView.addSubview(secondCard, constraints: [
             secondCard.topAnchor.constraint(equalTo: sectionLabel.bottomAnchor, constant: 16),
-            secondCard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            secondCard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+            secondCard.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 24),
+            secondCard.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -24)
         ])
-        view.addSubview(dotsStack, constraints: [
+        scrollView.addSubview(dotsStack, constraints: [
             dotsStack.topAnchor.constraint(equalTo: secondCard.bottomAnchor, constant: 12),
             dotsStack.heightAnchor.constraint(equalToConstant: 6),
             dotsStack.widthAnchor.constraint(equalToConstant: 40),
-            dotsStack.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            dotsStack.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
         ])
-        view.addSubview(instructionsLabel, constraints: [
+        scrollView.addSubview(instructionsLabel, constraints: [
             instructionsLabel.topAnchor.constraint(equalTo: dotsStack.bottomAnchor, constant: 32),
             instructionsLabel.leadingAnchor.constraint(equalTo: firstCard.leadingAnchor)
+        ])
+        scrollView.addSubview(instructionStack, constraints: [
+            instructionStack.topAnchor.constraint(equalTo: instructionsLabel.bottomAnchor, constant: 16),
+            instructionStack.leadingAnchor.constraint(equalTo: firstCard.leadingAnchor),
+            instructionStack.trailingAnchor.constraint(equalTo: firstCard.trailingAnchor),
+            instructionStack.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            instructionStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -32)
         ])
     }
 }
