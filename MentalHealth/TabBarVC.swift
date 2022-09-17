@@ -14,7 +14,7 @@ class TabBarVC: UITabBarController {
         super.viewDidLoad()
         setupUI()
         viewControllers = createViewControllers()
-        selectedIndex = 3
+        selectedIndex = 4
     }
     
     func setupUI() {
