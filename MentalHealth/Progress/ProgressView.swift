@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ProgressView: View {
+    
+    @EnvironmentObject var viewModel: ProgressViewModel
+    
     var body: some View {
         ScrollView {
-            MoodChart()
+            MoodChart(data: viewModel.chartData)
                 .frame(height: 200)
                 .padding(.horizontal, 15)
-            
-            Circle()
-                .foregroundColor(.yellow)
             
             Spacer()
         }
