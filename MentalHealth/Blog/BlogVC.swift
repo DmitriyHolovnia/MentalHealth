@@ -7,10 +7,12 @@
 
 import UIKit
 
-struct Blog {
-    let text: String
+struct Community {
+    let title: String
+    let description: String
     let image: String
-    let user: User
+    let author: User
+    let users: [User]
 }
 
 struct Comment {
@@ -44,7 +46,7 @@ class BlogVC: UIViewController {
       return collectionView
     }()
 
-//    private lazy var items: []
+    private lazy var items: [Community] = [Community]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +63,7 @@ class BlogVC: UIViewController {
     }
 
     private func setupCollectionView() {
-
+        view.addSubview(collectionView, withSafeAreaEdgeInsets: .zero)
     }
 }
 
