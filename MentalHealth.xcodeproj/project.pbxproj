@@ -30,6 +30,7 @@
 		09B0212C28D5DB3B0010C4B7 /* e-Ukraine-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 09B0212628D5DB3B0010C4B7 /* e-Ukraine-Regular.otf */; };
 		09B0212E28D5DBC20010C4B7 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B0212D28D5DBC20010C4B7 /* Font+Extension.swift */; };
 		09B0213028D5E83F0010C4B7 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B0212F28D5E83F0010C4B7 /* Color+Extension.swift */; };
+		09B0213228D5EF730010C4B7 /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B0213128D5EF730010C4B7 /* DefaultViewController.swift */; };
 		D9AD694028D5CA4400610D64 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AD693F28D5CA4400610D64 /* UIView+Extension.swift */; };
 		D9AD694328D5CA7000610D64 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D9AD694228D5CA7000610D64 /* CombineCocoa */; };
 		D9AD694728D5CC4300610D64 /* BlogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AD694628D5CC4300610D64 /* BlogCollectionViewCell.swift */; };
@@ -63,6 +64,7 @@
 		09B0212628D5DB3B0010C4B7 /* e-Ukraine-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "e-Ukraine-Regular.otf"; sourceTree = "<group>"; };
 		09B0212D28D5DBC20010C4B7 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		09B0212F28D5E83F0010C4B7 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		09B0213128D5EF730010C4B7 /* DefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
 		D9AD693F28D5CA4400610D64 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D9AD694628D5CC4300610D64 /* BlogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCollectionViewCell.swift; sourceTree = "<group>"; };
 		D9AD694928D5CCB100610D64 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				09ADDC5928D5C1F6007B6623 /* AppDelegate.swift */,
 				09ADDC5B28D5C1F6007B6623 /* SceneDelegate.swift */,
 				09ADDC7028D5C323007B6623 /* TabBarVC.swift */,
+				09B0213128D5EF730010C4B7 /* DefaultViewController.swift */,
 				09B0211D28D5D3600010C4B7 /* Models */,
 				09ADDC7428D5C368007B6623 /* Home */,
 				09ADDC7728D5C383007B6623 /* Progress */,
@@ -304,11 +307,11 @@
 				09B0211C28D5D35D0010C4B7 /* Mood.swift in Sources */,
 				09ADDC7F28D5C40A007B6623 /* ProfileVC.swift in Sources */,
 				09B0213028D5E83F0010C4B7 /* Color+Extension.swift in Sources */,
+				09B0213228D5EF730010C4B7 /* DefaultViewController.swift in Sources */,
 				09B0211F28D5D8430010C4B7 /* MoodProgress.swift in Sources */,
 				09ADDC5A28D5C1F6007B6623 /* AppDelegate.swift in Sources */,
 				09ADDC7C28D5C3EE007B6623 /* BlogVC.swift in Sources */,
 				D9AD694728D5CC4300610D64 /* BlogCollectionViewCell.swift in Sources */,
-				09ADDC7628D5C380007B6623 /* ProgressVC.swift in Sources */,
 				09ADDC7928D5C3A2007B6623 /* OpportunitiesVC.swift in Sources */,
 				09B0212E28D5DBC20010C4B7 /* Font+Extension.swift in Sources */,
 				D9AD694028D5CA4400610D64 /* UIView+Extension.swift in Sources */,
