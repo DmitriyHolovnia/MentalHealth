@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class TabBarVC: UITabBarController {
 
@@ -19,7 +20,9 @@ class TabBarVC: UITabBarController {
         let homeVC = HomeVC()
         homeVC.tabBarItem = UITabBarItem(title: "Home", image: nil, tag: 0)
         
-        let progressVC = ProgressVC()
+        let progessViewModel = ProgressViewModel()
+        let progressView = ProgressView().environmentObject(progessViewModel)
+        let progressVC = UIHostingController(rootView: progressView)
         progressVC.tabBarItem = UITabBarItem(title: "Progress", image: nil, tag: 1)
         
         let opportunitiesVC = OpportunitiesVC()
