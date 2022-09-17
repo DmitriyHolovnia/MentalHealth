@@ -93,8 +93,8 @@ class BlogVC: DefaultViewController {
     private func setupTableView() {
         view.addSubview(tableView, constraints: [
             tableView.topAnchor.constraint(equalTo: seachView.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
