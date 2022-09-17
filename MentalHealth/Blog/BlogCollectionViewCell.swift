@@ -17,12 +17,14 @@ class BlogTableViewCell: UITableViewCell, ReusableCell {
         let label = UILabel()
         label.text = ""
         label.textColor = .black
+        label.font = UIFont.mainRegular()
         return label
     }()
     private let subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = ""
         label.textColor = .lightGray
+        label.font = UIFont.mainRegular(size: 12)
         return label
     }()
     private let image: UIImageView = {
@@ -34,8 +36,9 @@ class BlogTableViewCell: UITableViewCell, ReusableCell {
         let button = UIButton()
         button.layer.cornerRadius = 20
         button.clipsToBounds = true
-        button.backgroundColor = .green
         button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.mainLight()
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
         return button
     }()
 
@@ -112,6 +115,18 @@ class BlogTableViewCell: UITableViewCell, ReusableCell {
         titleLabel.text = props.title
         subtitleLabel.text = props.description
         image.image = UIImage(named: props.image)
-        button.setTitle(props.isParticipant ? "Долучений" : "Долучитися", for: .normal)
+        if props.isParticipant {
+            button.setTitle("Долучений", for: .normal)
+            button.backgroundColor = UIColor.clear
+            button.setTitleColor(UIColor.darkGreen, for: .normal)
+            let image = UIImage(named: "mark")?.withRenderingMode(.alwaysTemplate)
+            button.setImage(image, for: .normal)
+            button.tintColor = UIColor.darkGreen
+        } else {
+            button.setTitle("Долучитися", for: .normal)
+            button.backgroundColor = UIColor.darkGreen
+            button.setTitleColor(.white, for: .normal)
+            button.setImage(nil, for: .normal)
+        }
     }
 }

@@ -55,7 +55,7 @@ class BlogVC: UIViewController {
 
     private lazy var allItems: [Community] = [
         .init(
-            title: "Some title 1",
+            title: "Рибацький клуб",
             description: "Київ, Україна",
             image: "fishing",
             author: .init(name: "Some name 1", email: "email1@gmail.com", image: "user"),
