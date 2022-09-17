@@ -14,7 +14,7 @@ class TabBarVC: UITabBarController {
         super.viewDidLoad()
         setupUI()
         viewControllers = createViewControllers()
-        selectedIndex = 1
+        selectedIndex = 3
     }
     
     func setupUI() {
@@ -39,22 +39,23 @@ class TabBarVC: UITabBarController {
                                              image: UIImage(named: "progress"),
                                              selectedImage: UIImage(named: "progress")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
         
-        let opportunitiesVC = OpportunitiesVC()
-        opportunitiesVC.tabBarItem = UITabBarItem(title: "Спільноти",
-                                                  image: UIImage(named: "community"),
-                                                  selectedImage: UIImage(named: "community")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
-        
         let blogVC = BlogVC()
-        blogVC.tabBarItem = UITabBarItem(title: "Можливості",
-                                         image: UIImage(named: "opportunities"),
-                                         selectedImage: UIImage(named: "opportunities")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
+        blogVC.tabBarItem = UITabBarItem(title: "Спільноти",
+                                         image: UIImage(named: "community"),
+                                         selectedImage: UIImage(named: "community")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
+        
+        let opportunitiesViewModel = OpportunitiesViewModel()
+        let opportunitiesVC = OpportunitiesVC(viewModel: opportunitiesViewModel)
+        opportunitiesVC.tabBarItem = UITabBarItem(title: "Можливості",
+                                                  image: UIImage(named: "opportunities"),
+                                                  selectedImage: UIImage(named: "opportunities")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
         
         let profileVC = ProfileVC()
         profileVC.tabBarItem = UITabBarItem(title: "Профіль",
                                             image: UIImage(named: "profile"),
                                             selectedImage: UIImage(named: "profile")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
         
-        return [homeVC, progressVC, opportunitiesVC, blogVC, profileVC]
+        return [homeVC, progressVC, blogVC, opportunitiesVC, profileVC]
     }
 
 }
