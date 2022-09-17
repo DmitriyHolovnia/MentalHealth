@@ -12,27 +12,47 @@ class TabBarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         viewControllers = createViewControllers()
+        selectedIndex = 1
     }
     
-    // Home, Progress, Opportunities, Blog, Profile
+    func setupUI() {
+        tabBar.tintColor = .darkGreen
+        tabBar.backgroundColor = .white
+        tabBar.layer.shadowOffset = .zero
+        tabBar.layer.shadowRadius = 2.0
+        tabBar.layer.shadowColor = UIColor.black.cgColor
+        tabBar.layer.shadowOpacity = 0.3
+    }
+
     func createViewControllers() -> [UIViewController] {
         let homeVC = HomeVC()
-        homeVC.tabBarItem = UITabBarItem(title: "Home", image: nil, tag: 0)
+        homeVC.tabBarItem = UITabBarItem(title: "Головна",
+                                         image: UIImage(named: "home"),
+                                         selectedImage: UIImage(named: "home")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
         
         let progessViewModel = ProgressViewModel()
         let progressView = ProgressView().environmentObject(progessViewModel)
         let progressVC = UIHostingController(rootView: progressView)
-        progressVC.tabBarItem = UITabBarItem(title: "Progress", image: nil, tag: 1)
+        progressVC.tabBarItem = UITabBarItem(title: "Прогрес",
+                                             image: UIImage(named: "progress"),
+                                             selectedImage: UIImage(named: "progress")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
         
         let opportunitiesVC = OpportunitiesVC()
-        opportunitiesVC.tabBarItem = UITabBarItem(title: "Opportunities", image: nil, tag: 2)
+        opportunitiesVC.tabBarItem = UITabBarItem(title: "Спільноти",
+                                                  image: UIImage(named: "community"),
+                                                  selectedImage: UIImage(named: "community")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
         
         let blogVC = BlogVC()
-        blogVC.tabBarItem = UITabBarItem(title: "Blog", image: nil, tag: 3)
+        blogVC.tabBarItem = UITabBarItem(title: "Можливості",
+                                         image: UIImage(named: "opportunities"),
+                                         selectedImage: UIImage(named: "opportunities")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
         
         let profileVC = ProfileVC()
-        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: nil, tag: 4)
+        profileVC.tabBarItem = UITabBarItem(title: "Профіль",
+                                            image: UIImage(named: "profile"),
+                                            selectedImage: UIImage(named: "profile")?.withTintColor(.darkGreen, renderingMode: .alwaysOriginal))
         
         return [homeVC, progressVC, opportunitiesVC, blogVC, profileVC]
     }

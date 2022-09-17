@@ -10,29 +10,22 @@ import Charts
 
 struct MoodChart: View {
     
-    let data: [MoodProgress] = [
-        MoodProgress(date: "jan/22", mood: .bad),
-        MoodProgress(date: "feb/22", mood: .sad),
-        MoodProgress(date: "mar/22", mood: .bad),
-        MoodProgress(date: "apr/22", mood: .good),
-        MoodProgress(date: "may/22", mood: .bad),
-        MoodProgress(date: "jun/22", mood: .good),
-        MoodProgress(date: "jul/22", mood: .happy)
-    ]
+    let data: [MoodProgress]
 
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(.yellow)
+                .foregroundColor(.lightGreen)
             
-            VStack {
+            VStack(spacing: 0) {
                 HStack {
                     Text("Mood chart")
-                        .padding(.leading, 10)
-                        .padding(.top, 5)
-                    
+                        .font(.mainMedium())
+
                     Spacer()
                 }
+                .padding(.leading, 10)
+                .padding(.top, 10)
                 
                 HStack {
                     VStack {
@@ -48,6 +41,7 @@ struct MoodChart: View {
                     chart
                 }
             }
+            .padding(5)
         }
     }
     
@@ -57,17 +51,21 @@ struct MoodChart: View {
                 x: .value("Mount", $0.date),
                 y: .value("Value", $0.mood.rawValue)
             )
+            .foregroundStyle(Color.darkGreen)
             PointMark(
                 x: .value("Mount", $0.date),
                 y: .value("Value", $0.mood.rawValue)
             )
+            .foregroundStyle(Color.darkGreen)
         }
+        .chartYAxis(.hidden)
+        .chartYAxisLabel("")
     }
 }
 
 struct MoodChart_Previews: PreviewProvider {
     static var previews: some View {
-        MoodChart()
+        MoodChart(data: [])
             .previewLayout(.fixed(width: 400, height: 150))
     }
 }
