@@ -7,28 +7,10 @@
 
 import UIKit
 
-struct Community {
-    let title: String
-    let description: String
-    let image: String
-    let author: User
-    let users: [User]
-    let isParticipant: Bool
-}
-
-struct Comment {
-    let text: String
-    let user: User
-}
-
-struct User {
-    let name: String
-    let email: String
-    let image: String
-}
-
-class BlogVC: UIViewController {
+class BlogVC: DefaultViewController {
     private let padding: CGFloat = 16.0
+
+    private let seachView = SearchView(placeholder: "Шукати можливості")
 
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .insetGrouped)
@@ -88,15 +70,31 @@ class BlogVC: UIViewController {
 
     private func setup() {
         title = "Спільноти"
+        titleLabel.text = title
         setupView()
     }
 
     private func setupView() {
+        setupSearchView()
         setupTableView()
     }
 
+    private func setupSearchView() {
+        view.addSubview(seachView, constraints: [
+            seachView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            seachView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            seachView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            seachView.heightAnchor.constraint(equalToConstant: 48)
+        ])
+    }
+
     private func setupTableView() {
-        view.addSubview(tableView, withSafeAreaEdgeInsets: .init(top: 0, left: padding / 2, bottom: 0, right: padding / 2))
+        view.addSubview(tableView, constraints: [
+            tableView.topAnchor.constraint(equalTo: seachView.bottomAnchor, constant: padding),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
     }
 }
 
