@@ -7,76 +7,128 @@
 
 import UIKit
 
-struct Community {
-    let title: String
-    let description: String
-    let image: String
-    let author: User
-    let users: [User]
-}
-
-struct Comment {
-    let text: String
-    let user: User
-}
-
-struct User {
-    let name: String
-    let email: String
-    let image: String
-}
-
-class BlogVC: UIViewController {
+class BlogVC: DefaultViewController {
     private let padding: CGFloat = 16.0
 
-    private lazy var collectionView: UICollectionView = {
-      let layout = BlogCollectionLayout(
-        cellSize: (UIScreen.main.bounds.width) / 10,
-        padding: padding / 2
-      ).makeLayout()
-      let collectionView = UICollectionView(
-        frame: .zero,
-        collectionViewLayout: layout
-      )
-      collectionView.delegate = self
-      collectionView.dataSource = self
-      collectionView.translatesAutoresizingMaskIntoConstraints = false
-      collectionView.register(cell: BlogCollectionViewCell.self)
-      collectionView.backgroundColor = .clear
-      return collectionView
+    private let seachView = SearchView(placeholder: "Шукати можливості")
+
+    private lazy var tableView: UITableView = {
+        let table = UITableView(frame: .zero, style: .insetGrouped)
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.register(BlogTableViewCell.self)
+        table.rowHeight = 200
+        table.backgroundColor = .clear
+        table.separatorStyle = .none
+        table.delegate = self
+        table.dataSource = self
+        return table
     }()
 
-    private lazy var items: [Community] = [Community]()
+    private lazy var myItems: [Community] = [
+        .init(
+            title: "Рибацький клуб",
+            description: "Київ, Україна",
+            image: "fishing",
+            author: .init(name: "Some name 0", email: "email0@gmail.com", image: "user"),
+            users: [],
+            isParticipant: true
+        )
+    ]
+
+    private lazy var allItems: [Community] = [
+        .init(
+            title: "Рибацький клуб",
+            description: "Київ, Україна",
+            image: "fishing",
+            author: .init(name: "Some name 1", email: "email1@gmail.com", image: "user"),
+            users: [],
+            isParticipant: false
+        ),
+        .init(
+            title: "Похід в гори",
+            description: "Київ, Україна",
+            image: "mountains",
+            author: .init(name: "Some name 2", email: "email2@gmail.com", image: "user"),
+            users: [],
+            isParticipant: false
+        ),
+        .init(
+            title: "Реабілітація",
+            description: "Київ, Україна",
+            image: "rehabilitation",
+            author: .init(name: "Some name 2", email: "email3@gmail.com", image: "user"),
+            users: [],
+            isParticipant: false
+        ),
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .white
         setup()
     }
 
     private func setup() {
+        title = "Спільноти"
+        titleLabel.text = title
         setupView()
     }
 
     private func setupView() {
-        setupCollectionView()
+        setupSearchView()
+        setupTableView()
     }
 
-    private func setupCollectionView() {
-        view.addSubview(collectionView, withSafeAreaEdgeInsets: .zero)
+    private func setupSearchView() {
+        view.addSubview(seachView, constraints: [
+            seachView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            seachView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            seachView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            seachView.heightAnchor.constraint(equalToConstant: 48)
+        ])
+    }
+
+    private func setupTableView() {
+        view.addSubview(tableView, constraints: [
+            tableView.topAnchor.constraint(equalTo: seachView.bottomAnchor, constant: padding),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
     }
 }
 
-extension BlogVC: UICollectionViewDelegate {
-
-}
-
-extension BlogVC: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+extension BlogVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 106
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.red
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.black
+    }
+}
+
+extension BlogVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "Мої спільноти" : "Всі спільноти"
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return section == 0 ? myItems.count : allItems.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let section = indexPath.section
+        let items = section == 0 ? myItems : allItems
+        let cell: BlogTableViewCell = tableView.dequeueReusableCell(forItemAt: indexPath)
+        let item = items[indexPath.item]
+        cell.render(with: item)
+        return cell
     }
 }
