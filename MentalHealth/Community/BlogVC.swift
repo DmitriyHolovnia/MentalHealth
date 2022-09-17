@@ -69,6 +69,8 @@ class BlogVC: DefaultViewController {
     }
 
     private func setup() {
+        editButton.isHidden = false
+        editButton.setImage(UIImage(named: "plus"), for: .normal)
         title = "Спільноти"
         titleLabel.text = title
         setupView()

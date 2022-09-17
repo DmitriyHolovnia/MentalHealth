@@ -36,6 +36,15 @@ class DefaultViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    private(set) lazy var editButton: UIButton = {
+       let button = UIButton()
+        button.isHidden = true
+        button.setImage(UIImage(named: "edit"), for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.3019607843, green: 0.4078431373, blue: 0.3960784314, alpha: 1)
+        button.layer.cornerRadius = 8
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +58,7 @@ class DefaultViewController: UIViewController {
         view.addSubview(headerView)
         headerView.addSubview(titleLabel)
         headerView.addSubview(backArrow)
+        headerView.addSubview(editButton)
         
         NSLayoutConstraint.activate([
             backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -67,7 +77,12 @@ class DefaultViewController: UIViewController {
             backArrow.heightAnchor.constraint(equalToConstant: 16),
             backArrow.widthAnchor.constraint(equalToConstant: 20),
             backArrow.topAnchor.constraint(equalTo: headerView.topAnchor),
-            backArrow.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25)
+            backArrow.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+
+            editButton.heightAnchor.constraint(equalToConstant: 36),
+            editButton.widthAnchor.constraint(equalToConstant: 36),
+            editButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            editButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor)
         ])
     }
     

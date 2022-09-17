@@ -18,7 +18,7 @@ class HomeVC: DefaultViewController {
         height: 134,
         title: "Як почуваєшся?",
         subtitle: "Заповни свій щоденник самопочуття",
-        image: "star"
+        image: "alive-star"
     )
     private lazy var sectionLabel: UILabel = {
         let label = UILabel()
@@ -79,11 +79,12 @@ class HomeVC: DefaultViewController {
         view.backgroundColor = .white
         title = "Головна"
         titleLabel.text = "Головна"
-
         setup()
     }
 
     private func setup() {
+        editButton.isHidden = false
+        editButton.setImage(UIImage(named: "bell"), for: .normal)
         view.addSubview(scrollView, constraints: [
             scrollView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

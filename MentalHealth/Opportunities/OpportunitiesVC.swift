@@ -74,6 +74,8 @@ class OpportunitiesVC: DefaultViewController {
     }
     
     func setupUI() {
+        editButton.isHidden = false
+        editButton.setImage(UIImage(named: "star"), for: .normal)
         titleLabel.text = "Можливості"
         view.backgroundColor = .white
         view.addSubview(searchTextField)

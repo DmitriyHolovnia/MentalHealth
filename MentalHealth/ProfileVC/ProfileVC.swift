@@ -51,14 +51,14 @@ class ProfileVC: DefaultViewController {
         table.dataSource = self
         return table
     }()
-    private lazy var editButton: UIButton = {
-       let button = UIButton()
-        button.setImage(UIImage(named: "edit"), for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.3019607843, green: 0.4078431373, blue: 0.3960784314, alpha: 1)
-        button.layer.cornerRadius = 8
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    private lazy var editButton: UIButton = {
+//       let button = UIButton()
+//        button.setImage(UIImage(named: "edit"), for: .normal)
+//        button.backgroundColor = #colorLiteral(red: 0.3019607843, green: 0.4078431373, blue: 0.3960784314, alpha: 1)
+//        button.layer.cornerRadius = 8
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +67,7 @@ class ProfileVC: DefaultViewController {
 
     private func setupViews() {
         titleLabel.text = "Профіль"
-        
+        editButton.isHidden = false
         view.addSubview(imageView, constraints: [
             imageView.heightAnchor.constraint(equalToConstant: 90),
             imageView.widthAnchor.constraint(equalToConstant: 98),
@@ -94,12 +94,12 @@ class ProfileVC: DefaultViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         
-        view.addSubview(editButton, constraints: [
-            editButton.heightAnchor.constraint(equalToConstant: 36),
-            editButton.widthAnchor.constraint(equalToConstant: 36),
-            editButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            editButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor)
-        ])
+//        view.addSubview(editButton, constraints: [
+//            editButton.heightAnchor.constraint(equalToConstant: 36),
+//            editButton.widthAnchor.constraint(equalToConstant: 36),
+//            editButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+//            editButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor)
+//        ])
         
     }
     
