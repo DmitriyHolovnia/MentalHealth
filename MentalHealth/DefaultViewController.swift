@@ -22,12 +22,19 @@ class DefaultViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    private lazy var backgroundView: UIImageView = {
+    private(set) lazy var backgroundView: UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(named: "header")
         iv.contentMode = .scaleAspectFill
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
+    }()
+    private(set) lazy var backArrow: UIButton = {
+        let button = UIButton()
+        button.isHidden = true
+        button.setImage(UIImage(named: "back-arrow"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
 
     override func viewDidLoad() {
@@ -41,6 +48,8 @@ class DefaultViewController: UIViewController {
         view.addSubview(backgroundView)
         view.addSubview(headerView)
         headerView.addSubview(titleLabel)
+        headerView.addSubview(backArrow)
+        
         NSLayoutConstraint.activate([
             backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -53,7 +62,12 @@ class DefaultViewController: UIViewController {
             headerView.heightAnchor.constraint(equalToConstant: 70),
             
             titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 26),
-            titleLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
+            titleLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+            
+            backArrow.heightAnchor.constraint(equalToConstant: 16),
+            backArrow.widthAnchor.constraint(equalToConstant: 20),
+            backArrow.topAnchor.constraint(equalTo: headerView.topAnchor),
+            backArrow.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25)
         ])
     }
     

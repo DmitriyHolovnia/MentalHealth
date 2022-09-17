@@ -47,6 +47,16 @@ class OpportunitiesVC: DefaultViewController {
         cv.translatesAutoresizingMaskIntoConstraints = false
         return cv
     }()
+    private lazy var mapButton: UIButton = {
+       let button = UIButton()
+        let image = UIImage(systemName: "map")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        button.setImage(image, for: .normal)
+        button.setTitle("Мапа", for: .normal)
+        button.layer.cornerRadius = 20
+        button.backgroundColor = .darkGreen
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     
     init(viewModel: OpportunitiesViewModel) {
@@ -69,6 +79,8 @@ class OpportunitiesVC: DefaultViewController {
         view.addSubview(searchTextField)
         view.addSubview(segmentControl)
         view.addSubview(collectionView)
+        view.addSubview(mapButton)
+        view.addSubview(mapButton)
         
         NSLayoutConstraint.activate([
             searchTextField.topAnchor.constraint(equalTo: headerView.bottomAnchor),
@@ -84,7 +96,12 @@ class OpportunitiesVC: DefaultViewController {
             collectionView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            mapButton.widthAnchor.constraint(equalToConstant: 110),
+            mapButton.heightAnchor.constraint(equalToConstant: 40),
+            mapButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mapButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
     }
     
