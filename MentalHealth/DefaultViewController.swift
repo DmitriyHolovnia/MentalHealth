@@ -33,6 +33,7 @@ class DefaultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        addTapGesture()
     }
     
     private func setupUI() {
@@ -56,4 +57,13 @@ class DefaultViewController: UIViewController {
         ])
     }
     
+    private func addTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    private func didTap(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
 }
