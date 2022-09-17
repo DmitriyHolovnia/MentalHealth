@@ -122,7 +122,7 @@
 				09ADDC7428D5C368007B6623 /* Home */,
 				09ADDC7728D5C383007B6623 /* Progress */,
 				09ADDC7A28D5C3A4007B6623 /* Opportunities */,
-				09ADDC7D28D5C3F1007B6623 /* Blog */,
+				09ADDC7D28D5C3F1007B6623 /* Community */,
 				09ADDC8028D5C40D007B6623 /* ProfileVC */,
 				D9AD693C28D5CA1200610D64 /* Common */,
 				09ADDC6528D5C1F8007B6623 /* Assets.xcassets */,
@@ -162,13 +162,13 @@
 			path = Opportunities;
 			sourceTree = "<group>";
 		};
-		09ADDC7D28D5C3F1007B6623 /* Blog */ = {
+		09ADDC7D28D5C3F1007B6623 /* Community */ = {
 			isa = PBXGroup;
 			children = (
 				09ADDC7B28D5C3EE007B6623 /* BlogVC.swift */,
 				D9AD694628D5CC4300610D64 /* BlogCollectionViewCell.swift */,
 			);
-			path = Blog;
+			path = Community;
 			sourceTree = "<group>";
 		};
 		09ADDC8028D5C40D007B6623 /* ProfileVC */ = {

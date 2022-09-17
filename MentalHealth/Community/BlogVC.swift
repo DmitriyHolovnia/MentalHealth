@@ -8,7 +8,7 @@
 import UIKit
 
 class BlogVC: DefaultViewController {
-    private let padding: CGFloat = 16.0
+    private let padding: CGFloat = 0.0
 
     private let seachView = SearchView(placeholder: "Шукати можливості")
 
@@ -82,17 +82,17 @@ class BlogVC: DefaultViewController {
     private func setupSearchView() {
         view.addSubview(seachView, constraints: [
             seachView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
-            seachView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            seachView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            seachView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            seachView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             seachView.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
 
     private func setupTableView() {
         view.addSubview(tableView, constraints: [
-            tableView.topAnchor.constraint(equalTo: seachView.bottomAnchor, constant: padding),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            tableView.topAnchor.constraint(equalTo: seachView.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }

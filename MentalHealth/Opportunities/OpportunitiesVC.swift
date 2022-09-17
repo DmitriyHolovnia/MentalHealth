@@ -18,7 +18,7 @@ class OpportunitiesVC: DefaultViewController {
     
     // MARK: - UI
     private lazy var searchTextField: SearchView = {
-        let tf = SearchView()
+        let tf = SearchView(placeholder: "Шукати можливості")
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
