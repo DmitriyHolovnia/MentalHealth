@@ -127,7 +127,6 @@ extension QuizVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.selectedCell = indexPath
         tableView.reloadData()
-        print(indexPath.row)
     }
     
     

@@ -20,7 +20,7 @@ class ProfileVC: DefaultViewController {
     }()
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Пуля, 32"
+        label.text = "Куля, 32"
         label.textColor = .black
         label.font = UIFont.mainRegular(size: 18)
         return label
@@ -44,6 +44,7 @@ class ProfileVC: DefaultViewController {
         let table = UITableView(frame: .zero, style: .insetGrouped)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(ProfileTableViewCell.self)
+        table.register(ProfileReferralCell.self)
         table.rowHeight = 200
         table.backgroundColor = .clear
         table.separatorStyle = .none
@@ -112,7 +113,7 @@ class ProfileVC: DefaultViewController {
 extension ProfileVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 72
+        return indexPath.row == 0 ? 96 : 72
     }
 
 }
@@ -120,14 +121,19 @@ extension ProfileVC: UITableViewDelegate {
 extension ProfileVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items.count
+        items.count + 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: ProfileTableViewCell = tableView.dequeueReusableCell(forItemAt: indexPath)
-        let item = items[indexPath.item]
-        cell.render(with: item)
-        return cell
+        if indexPath.row == 0 {
+            let cell: ProfileReferralCell = tableView.dequeueReusableCell(forItemAt: indexPath)
+            return cell
+        } else {
+            let cell: ProfileTableViewCell = tableView.dequeueReusableCell(forItemAt: indexPath)
+            let item = items[indexPath.item - 1]
+            cell.render(with: item)
+            return cell
+        }
     }
 
 }

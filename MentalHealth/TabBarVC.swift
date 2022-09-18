@@ -14,7 +14,7 @@ class TabBarVC: UITabBarController {
         super.viewDidLoad()
         setupUI()
         viewControllers = createViewControllers()
-        selectedIndex = 4
+        selectedIndex = 0
     }
     
     func setupUI() {
@@ -58,4 +58,16 @@ class TabBarVC: UITabBarController {
         return [homeVC, progressVC, blogVC, opportunitiesVC, profileVC]
     }
 
+}
+
+struct TabBarView: UIViewControllerRepresentable {
+    
+    func makeUIViewController(context: Context) -> TabBarVC {
+        TabBarVC()
+    }
+    
+    func updateUIViewController(_ uiViewController: TabBarVC, context: Context) {
+        
+    }
+    
 }

@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import SwiftUI
 
 class HomeVC: DefaultViewController {
 
+    private var quizCompleted = false
+    
     private let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.isUserInteractionEnabled = true
@@ -80,6 +83,22 @@ class HomeVC: DefaultViewController {
         title = "Головна"
         titleLabel.text = "Головна"
         setup()
+        addActionForQuiz()
+    }
+    
+    func addActionForQuiz() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showDailyQuiz))
+        firstCard.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc
+    private func showDailyQuiz() {
+        quizCompleted = true
+        let vc = UIHostingController(rootView: CheckInView(dismissAction: {
+            self.dismiss(animated: true)
+        }))
+
+        present(vc, animated: true)
     }
 
     private func setup() {

@@ -111,6 +111,7 @@ class OpportunitiesVC: DefaultViewController {
     func segmentControlDidSelect(_ sender: UISegmentedControl) {
         guard let newSection = SectionType(rawValue: sender.selectedSegmentIndex) else { return }
         currentSection = newSection
+        mapButton.isHidden = newSection != .place
     }
 
 }

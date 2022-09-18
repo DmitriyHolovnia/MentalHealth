@@ -41,7 +41,14 @@ class BlogTableViewCell: UITableViewCell, ReusableCell {
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
         return button
     }()
-
+    private lazy var peopleStack: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "people-stack")
+        iv.contentMode = .scaleAspectFit
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
+    }()
+    
     // MARK: - Life cycle
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -70,6 +77,7 @@ class BlogTableViewCell: UITableViewCell, ReusableCell {
         setupTitleLabel()
         setupSubtitleLabel()
         setupButton()
+        setupPeopleStack()
     }
 
     private func setupImageView() {
@@ -106,6 +114,15 @@ class BlogTableViewCell: UITableViewCell, ReusableCell {
             button.widthAnchor.constraint(equalToConstant: 120),
             button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
+    }
+    
+    private func setupPeopleStack() {
+        contentView.addSubview(peopleStack, constraints: [
+            peopleStack.centerYAnchor.constraint(equalTo: button.centerYAnchor),
+            peopleStack.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 16),
+            peopleStack.heightAnchor.constraint(equalToConstant: 24),
+            peopleStack.widthAnchor.constraint(equalToConstant: 84)
         ])
     }
 

@@ -17,6 +17,7 @@ class BlogVC: DefaultViewController {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(BlogTableViewCell.self)
         table.rowHeight = 200
+        table.sectionHeaderHeight = 50
         table.backgroundColor = .clear
         table.separatorStyle = .none
         table.delegate = self
@@ -106,12 +107,21 @@ extension BlogVC: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-        view.tintColor = UIColor.red
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = UIColor.black
-        header.textLabel?.font = UIFont.mainRegular(size: 16)
-        header.textLabel?.text = section == 0 ? "Мої спільноти" : "Всі спільноти"
+//        view.tintColor = UIColor.red
+//        let header = view as! UITableViewHeaderFooterView
+//        header.textLabel?.textColor = UIColor.black
+//        header.textLabel?.font = UIFont.mainRegular(size: 16)
+//        header.textLabel?.text = section == 0 ? "Мої спільноти" : "Всі спільноти"
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let textLabel = UILabel()
+        textLabel.textColor = UIColor.black
+        textLabel.font = UIFont.mainRegular(size: 16)
+        textLabel.text = section == 0 ? "Мої спільноти" : "Всі спільноти"
+        return textLabel
+    }
+    
 }
 
 extension BlogVC: UITableViewDataSource {
